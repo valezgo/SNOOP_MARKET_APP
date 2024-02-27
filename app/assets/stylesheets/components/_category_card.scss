@@ -1,0 +1,49 @@
+.card-category {
+  border: 1.5px solid;
+  height: 195px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+
+  &.green {
+    border-color: $green;
+    background-color: rgba($green, 0.4);
+  }
+  &.primary-red {
+    border-color: $primary-red;
+    background-color: rgba($primary-red, 0.4);
+  }
+  &.yellow {
+    border-color: $yellow;
+    background-color: rgba($yellow, 0.4);
+  }
+  &.secondary-red {
+    border-color: $secondary-red;
+    background-color: rgba($secondary-red, 0.4);
+  }
+  &.purple {
+    border-color: $purple;
+    background-color: rgba($purple, 0.4);
+  }
+  &.pink {
+    border-color: $pink;
+    background-color: rgba($pink, 0.4);
+  }
+  &.secondary-blue {
+    border-color: $secondary-blue;
+    background-color: rgba($secondary-blue, 0.4);
+  }
+  &.orange {
+    border-color: $orange;
+    background-color: rgba($orange, 0.4);
+  }
+}
+
+.container {
+  padding-bottom: 60px;
+}
