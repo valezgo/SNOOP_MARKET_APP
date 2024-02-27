@@ -1,9 +1,14 @@
-<div class="container-sign-up">
-  <h2>Sign up</h2>
-  <div class="form-registration">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+  <div style="margin-bottom: 20px;">
+    <%= image_tag "super-logo.png", alt: "Logo", width: 100, style: "vertical-align: middle;" %>
+  </div>
+
+ <div style="text-align: left; max-width: 400px;">
+    <h2>Sign up</h2>
+    <p class="small-p">Enter your credentials to continue</p>
+
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-  </div>
       <div class="form-inputs">
         <%= f.input :email,
                     required: true,
@@ -11,16 +16,13 @@
                     input_html: { autocomplete: "email" }%>
         <%= f.input :password,
                     required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
+      <p class="small-p">By continuing you agree to our <strong> Terms of Service</strong> and <strong> Privacy Policy</strong></p>
+      <%= f.button :submit, "Sign up", class: "btn-green-primary" %>
     <% end %>
-  <%= render "devise/shared/links" %>
-</div>
+    <%= render "devise/shared/links" %>
+  </div>
