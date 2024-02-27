@@ -1,2 +1,27 @@
 <h1>Pages#home</h1>
+<h2>Categories</h2>
+
+
+
+<% colors = ["rgba(145, 196, 158, 0.7)", "rgba(241, 191, 133, 0.7)", "rgba(235, 168, 151, 0.7)", "rgba(205, 178, 221, 0.7)", "rgba(249, 230, 161, 0.7)", "rgba(191, 222, 243, 0.7)"] %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <% @categories.each_slice(2) do |category_row| %>
+      <div class="col-sm-4 my-2">
+        <div class="d-flex justify-content-around">
+          <% category_row.each do |category| %>
+            <% random_color = colors.sample %>
+            <div class="card-category mx-1" style="background-color: <%= random_color %>; border: 2px solid <%= random_color %>; height: 150px; width: 100px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+              <div style="margin-bottom: 5px;"><%= category.name %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
 <p>Find me in app/views/pages/home.html.erb</p>

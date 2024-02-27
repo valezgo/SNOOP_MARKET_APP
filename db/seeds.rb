@@ -1,9 +1,108 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Item.destroy_all
+Category.destroy_all
+User.destroy_all
+
+categories = [
+  {name: "Fruits", description: "Fresh Fruits"},
+  {name: "Vegetables", description: "Fresh Vegetables"},
+  {name: "Dairy", description: "Milk, Cheese, Yogurt"},
+  {name: "Meat", description: "Chicken, Beef, Pork"},
+  {name: "Bakery", description: "Bread, Pastries, Cakes"},
+  {name: "Snacks", description: "Chips, Nuts, Crackers"},
+  {name: "Beverages", description: "Sodas, Juices, Tea"},
+  {name: "Condiments", description: "Sauces, Spices, Dressings"}
+];
+
+items = {
+  fruits: [
+    {name: "Banana", description: "From Ecuador", quantity: 100, price: 0.59},
+    {name: "Orange", description: "Freshly picked", quantity: 80, price: 0.75},
+    {name: "Kiwi", description: "Imported from New Zealand", quantity: 40, price: 1.25},
+    {name: "Apple", description: "Local variety", quantity: 60, price: 0.95},
+    {name: "Grapes", description: "Seedless", quantity: 50, price: 2.50}
+  ],
+  vegetables: [
+    {name: "Tomato", description: "Organically grown", quantity: 70, price: 0.89},
+    {name: "Spinach", description: "Locally sourced", quantity: 60, price: 1.15},
+    {name: "Carrot", description: "Freshly harvested", quantity: 50, price: 0.45},
+    {name: "Broccoli", description: "Nutritious", quantity: 40, price: 1.75},
+    {name: "Bell Pepper", description: "Assorted colors", quantity: 30, price: 1.20}
+  ],
+  dairy: [
+    {name: "Milk", description: "Whole milk", quantity: 20, price: 2.50},
+    {name: "Cheese", description: "Cheddar", quantity: 15, price: 3.75},
+    {name: "Yogurt", description: "Greek yogurt", quantity: 25, price: 1.50},
+    {name: "Butter", description: "Salted butter", quantity: 10, price: 2.25},
+    {name: "Cream", description: "Heavy cream", quantity: 10, price: 3.00}
+  ],
+  meat: [
+    {name: "Chicken Breast", description: "Boneless", quantity: 30, price: 4.50},
+    {name: "Ground Beef", description: "Lean", quantity: 25, price: 5.75},
+    {name: "Pork Chops", description: "Center-cut", quantity: 20, price: 6.25},
+    {name: "Salmon Fillet", description: "Wild-caught", quantity: 15, price: 8.99},
+    {name: "Lamb Leg", description: "Australian", quantity: 10, price: 9.50}
+  ],
+  bakery: [
+    {name: "Baguette", description: "French style", quantity: 40, price: 2.25},
+    {name: "Croissant", description: "Butter pastry", quantity: 35, price: 1.75},
+    {name: "Chocolate Cake", description: "Decadent", quantity: 20, price: 12.99},
+    {name: "Cinnamon Roll", description: "Freshly baked", quantity: 30, price: 2.99},
+    {name: "Sourdough Bread", description: "Artisanal", quantity: 25, price: 3.50}
+  ],
+  snacks: [
+    {name: "Potato Chips", description: "Classic", quantity: 50, price: 1.99},
+    {name: "Mixed Nuts", description: "Salted", quantity: 40, price: 4.50},
+    {name: "Crackers", description: "Whole grain", quantity: 45, price: 2.75},
+    {name: "Popcorn", description: "Butter flavor", quantity: 55, price: 1.25},
+    {name: "Pretzels", description: "Twisted", quantity: 60, price: 3.00}
+  ],
+  beverages: [
+    {name: "Cola", description: "Classic", quantity: 30, price: 1.25},
+    {name: "Orange Juice", description: "Freshly squeezed", quantity: 25, price: 3.50},
+    {name: "Green Tea", description: "Sencha", quantity: 20, price: 2.99},
+    {name: "Coffee", description: "Ground", quantity: 35, price: 4.75},
+    {name: "Bottled Water", description: "Spring water", quantity: 40, price: 0.99}
+  ],
+  condiments: [
+    {name: "Ketchup", description: "Classic", quantity: 50, price: 1.75},
+    {name: "Mustard", description: "Dijon", quantity: 45, price: 2.25},
+    {name: "Mayonnaise", description: "Light", quantity: 40, price: 3.00},
+    {name: "Soy Sauce", description: "Low sodium", quantity: 30, price: 2.50},
+    {name: "Hot Sauce", description: "Habanero", quantity: 35, price: 4.99}
+  ]
+};
+
+# users = {
+#   nicolas: [
+#     {email: "ottatinicolas91@gmail.com", encrypted_password: "password"},
+#   ],
+#   martin: [
+#     {email: "martin.guido.r17@gmail.com", encrypted_password: "password"},
+#   ],
+#   valeria: [
+#     {email: "msvalerialg@gmail.com", encrypted_password: "password"},
+#   ],
+#   francisco: [
+#     {email: "ciscotomaramo@gmail.com", encrypted_password: "password"},
+#   ],
+# }
+
+categories.each do |category|
+  Category.create!(name: category[:name], description: category[:description])
+end
+
+Category.all.each do |category|
+  items[category.name.downcase.to_sym].each do |item|
+    Item.create!(
+      category: category,
+      name: item[:name],
+      description: item[:description],
+      quantity: item[:quantity],
+      price: item[:price]
+    )
+  end
+end
+
+# users.each do |user|
+#   User.create!(email: user[:email], encrypted_password: user[:encrypted_password])
+# end
