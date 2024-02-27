@@ -1,0 +1,63 @@
+<%# First we should be putting the item image but idk how yet %>
+<div class="container">
+  <div class="card-cover">
+  </div>
+  <div class="item-header">
+    <div class="item-header-top">
+      <div class="item-header-label">
+        <h1><%= @item.name %></h1>
+        <p>1kg, Price</p> <!-- I have to make it dynamic but we don't have nothing to do it -->
+      </div>
+      <div class="item-header-bookmark">
+        <!-- <%= link_to %> I should be having a method and a route to bookmark -->
+        ♡
+      </div>
+    </div>
+    <div class="item-header-bottom">
+      <div class="add-decrease-unit">
+        <button class="btn decrease-unit">-</button>
+        1
+        <button class="btn increase-unit">+</button>
+      </div>
+      <div class="unit-price">
+        <h1>€<%= @item.price %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="item-card"> <%# ' data-controller="card" ' before class for toggle with stimulus %>
+    <div class="item-card-section">
+      <div class="item-card-header">
+        <h5 class="card-title" id="item">Product Detail</h5>
+        <button <%# data-action="click->card#toggle" %>class="btn">></button> <%# Add dropdown ">" icon that turns 90 degrees down when active %>
+      </div>
+      <div class="card-body">  <%# data-target="card.body" style="display: none;"%>
+        <p><%= @item.description %></p>
+      </div>
+    </div>
+    <div class="item-card-section">
+      <div class="item-card-header">
+        <h5 class="card-title" id="item">Nutrition Information</h5>
+        <button <%# data-action="click->card#toggle" %>class="btn">></button> <%# Add dropdown ">" icon that turns 90 degrees down when active %>
+      </div>
+      <div class="card-body">  <%# data-target="card.body" style="display: none;"%>
+        <p><%# @item.nutritional (CREATE) %></p>
+      </div>
+    </div>
+    <div class="item-card-section">
+      <div class="item-card-header">
+        <h5 class="card-title" id="item">Rating</h5>
+        <div class="rating">
+          ★★★★★ <%# We should be making a component that according to x rating shows x stars %>
+          <button <%# data-action="click->card#toggle" %>class="btn">></button> <%# Add dropdown ">" icon that turns 90 degrees down when active %>
+        </div>
+      </div>
+      <div class="card-body">  <%# data-target="card.body" style="display: none;"%>
+        <p><%# @item.nutritional (CREATE) %></p>
+      </div>
+    </div>
+    <!--- ADD VALE'S BUTTON HERE -->
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-success btn-lg" style="color: white; border-radius: 16px;">Add To Basket</button>
+    </div>
+  </div>
+</div>

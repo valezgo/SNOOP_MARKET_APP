@@ -1,0 +1,39 @@
+.container {
+  padding: 16px;
+  
+}
+
+.item-header-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button.btn.increase-unit {
+    color: $green;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  button.btn.decrease-unit {
+    color: $primary-grey;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.item-card {
+  margin: 20px;
+}
+
+.item-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+}
