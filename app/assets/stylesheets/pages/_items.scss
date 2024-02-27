@@ -1,6 +1,6 @@
 .container {
   padding: 16px;
-  
+  margin-block: 8px;  
 }
 
 .item-header-top {
@@ -12,20 +12,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  button.btn.increase-unit {
-    color: $green;
-    font-size: 24px;
-    font-weight: 700;
-  }
   button.btn.decrease-unit {
     color: $primary-grey;
     font-size: 24px;
     font-weight: 700;
+    padding-right: 20px;
+  }
+  button.btn.increase-unit {
+    color: $green;
+    font-size: 24px;
+    font-weight: 700;
+    padding-left: 20px;
   }
 }
 
 .item-card {
   margin: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item-card-section {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .item-card-header {
