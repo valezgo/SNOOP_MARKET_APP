@@ -1,0 +1,97 @@
+.container {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-block: 8px;
+  button {
+    font-size: 24px;
+    font-weight: 700;
+    padding-left: 20px;
+  }
+}
+
+.card-cover {
+  background-color: $disabled-grey;
+  height: 40vh;
+  width: 100%;
+  overflow: hidden; 
+  opacity: 0.7;
+  border-radius: 0 0 32px 32px; /* Opacidad para traslucir el fondo */
+  img {
+    width: 100%; /* Para que la imagen siempre ocupe al menos el ancho del contenedor */
+    height: 100%; /* Para que la imagen siempre ocupe al menos la altura del contenedor */
+    object-fit: cover; /* Para que la imagen se ajuste y recorte según el tamaño del contenedor */
+  }
+}
+
+.item-header-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .increase-decrease-unit {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 20px;
+    button.btn.decrease-unit {
+      color: $primary-grey;
+      padding-left: 0px;
+      padding-right: 20px;
+    }
+    button.btn.increase-unit {
+      color: $green;
+    }
+  }
+}
+
+.item-card {
+  margin: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item-card-section {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-top: 1px solid #E2E2E2;
+}
+
+.item-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .rating {
+    display: flex;
+    align-items: center;
+    .stars {
+      color: #F3603F;
+    }
+  }
+}
+
+.btn-green-primary {
+  background-color: #53B175;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 18px;
+  width: 100%;
+}
+
+#add-to-basket-btn {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: white;
+  padding: 16px 12px 40px 12px;
+}
