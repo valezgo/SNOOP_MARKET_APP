@@ -106,12 +106,17 @@ end
 
 Category.all.each do |category|
   items[category.name.downcase.to_sym].each do |item|
-    Item.create!(
+    new_item = Item.new(
       category: category,
       name: item[:name],
       description: item[:description],
       quantity: item[:quantity],
       price: item[:price]
     )
+
+    file = URI.open("https://source.unsplash.com/random/?#{item[:name]}")
+
+    new_item.photo.attach(io: file, filename: "#{item[:name]}.png", content_type: "image/png")
+    new_item.save
   end
 end

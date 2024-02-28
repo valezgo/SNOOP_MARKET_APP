@@ -1,7 +1,8 @@
 <%# First we should be putting the item image but idk how yet %>
-<div class="container">
-  <div class="card-cover">
-  </div>
+<div class="card-cover">
+  <%= cl_image_tag @item.photo.key  %>
+</div>
+<div class="container" style="margin-bottom: 100px;">
   <div class="item-header">
     <div class="item-header-top">
       <div class="item-header-label">
@@ -30,8 +31,9 @@
         <h5 class="card-title" id="item">Product Detail</h5>
         <button data-action="click->card#toggle" class="btn">></button> <%# Add dropdown ">" icon that turns 90 degrees down when active %>
       </div>
-      <div data-target="card.body" class="card-body" style="display: none;">
+      <div data-target="card.body" class="card-body">
         <p><%= @item.description %></p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae dolores molestiae ipsam veritatis pariatur rem illum accusamus libero sed iure voluptatum aliquam iste laboriosam laborum, consectetur omnis quod facere nisi.</p>
       </div>
     </div>
     <div class="item-card-section">
@@ -57,9 +59,8 @@
         <p><%# @item.nutritional (CREATE) %></p>
       </div>
     </div>
-    <!--- ADD VALE'S BUTTON HERE -->
-    <div class="d-grid gap-2 d-md-block">
-      <button class="btn btn-success btn-lg" style="color: white; border-radius: 16px;">Add To Basket</button>
-    </div>
+  </div>
+  <div id="add-to-basket-btn">
+    <%= link_to "Add To Basket", "#", class: "btn-green-primary"%>
   </div>
 </div>
