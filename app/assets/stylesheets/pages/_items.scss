@@ -44,5 +44,8 @@
   .rating {
     display: flex;
     align-items: center;
+    .stars {
+      color: #F3603F;
+    }
   }
 }
