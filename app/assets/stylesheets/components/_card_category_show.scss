@@ -1,0 +1,56 @@
+h5 {
+text-align: center;
+font-size: 30px;
+
+}
+
+.card-item {
+  text-decoration: none
+}
+
+.card-category {
+  border: 1.5px solid;
+  height: 195px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.container {
+  padding-bottom: 60px;
+}
+
+.fruit-image {
+  width: 100%; /* Ensure the image fills the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
+  border-radius: 10px 10px 0 0; /* Apply rounded corners to the top */
+  margin-bottom: 10px
+}
+
+.card-body {
+  padding:8px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.item-price{
+  display:flex;
+  justify-content: flex-bottom
+
+}
+
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+}
