@@ -1,2 +1,59 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="header text-center">
+  <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px;" %>
+    <div>
+      <div style="display: inline-block; margin-bottom: 15px;">
+        <i class="fa-solid fa-location-dot"></i> <p style="display: inline;">Barcelona, Spain</p>
+      </div>
+    </div>
+</div>
+
+<div class="search-bar text-center">
+  <form action="/search" method="get" class="search-form">
+    <div class="input-wrapper">
+      <input type="text" name="query" placeholder="Search..." class="search-input" />
+      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <% @categories.each_slice(2) do |category_row| %>
+      <div class="col-sm-4 my-3">
+        <div class="d-flex justify-content-around">
+          <% category_row.each do |category| %>
+            <%= link_to category_path(category), class: "no-link-style" do %>
+              <div class="card-category <%= category.color %>">
+                <%= image_tag("categories/#{category.name}.png", alt: category.name, class: "card-image") %>
+                <div style="margin-bottom: 15px;"><%= category.name %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="navbar fixed-bottom">
+  <div class="button-column">
+    <i class="fa-solid fa-shop"></i>
+    <span>Shop</span>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span>Explore</span>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>Cart</span>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-heart"></i>
+    <span>Favorite</span>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-user"></i>
+    <span>Account</span>
+  </div>
+</div>

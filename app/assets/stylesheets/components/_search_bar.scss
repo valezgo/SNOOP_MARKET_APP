@@ -1,0 +1,44 @@
+.input-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.search-form {
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-input {
+  padding-right: 0px;
+  padding-left: 15px;
+  background-color: $disabled-grey;
+  border-radius: 10px;
+  border: 0;
+  height: 45px;
+  width: 378px;
+  flex: 1;
+}
+
+.search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar {
+  position: sticky;
+  top: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  background-color: $white;
+  z-index: 999;
+}
