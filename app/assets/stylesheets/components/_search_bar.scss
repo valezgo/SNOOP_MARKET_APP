@@ -14,11 +14,11 @@
 .search-input {
   padding-right: 0px;
   padding-left: 15px;
-  background-color: $green;
+  background-color: $disabled-grey;
   border-radius: 10px;
   border: 0;
   height: 45px;
-  width: 373px;
+  width: 378px;
   flex: 1;
 }
 
@@ -31,4 +31,14 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.search-bar {
+  position: sticky;
+  top: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  background-color: $white;
+  z-index: 999;
 }

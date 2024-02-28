@@ -5,14 +5,15 @@
         <i class="fa-solid fa-location-dot"></i> <p style="display: inline;">Barcelona, Spain</p>
       </div>
     </div>
-    <div>
-      <form action="/search" method="get" class="search-form">
-        <div class="input-wrapper">
-          <input type="text" name="query" placeholder="Search..." class="search-input" />
-          <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-        </div>
-      </form>
+</div>
+
+<div class="search-bar text-center">
+  <form action="/search" method="get" class="search-form">
+    <div class="input-wrapper">
+      <input type="text" name="query" placeholder="Search..." class="search-input" />
+      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
     </div>
+  </form>
 </div>
 
 <div class="container">
@@ -21,9 +22,12 @@
       <div class="col-sm-4 my-3">
         <div class="d-flex justify-content-around">
           <% category_row.each do |category| %>
-            <div class="card-category <%= category.color %>">
-              <div style="margin-bottom: 15px;"><%= category.name %></div>
-            </div>
+            <%= link_to category_path(category), class: "no-link-style" do %>
+              <div class="card-category <%= category.color %>">
+                <%= image_tag("categories/#{category.name}.png", alt: category.name, class: "card-image") %>
+                <div style="margin-bottom: 15px;"><%= category.name %></div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
