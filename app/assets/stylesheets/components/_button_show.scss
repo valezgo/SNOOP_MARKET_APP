@@ -1,0 +1,21 @@
+.btn-success {
+  background-color: #53B175;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 24px;
+  width: 46px;
+  height: 46px;
+}
+
+.btn-light{
+  background-color:grey;
+  border: white
+}
