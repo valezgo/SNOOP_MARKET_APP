@@ -17,11 +17,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  button.btn.decrease-unit {
-    color: $primary-grey;
-  }
-  button.btn.increase-unit {
-    color: $green;
+  .increase-decrease-unit {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 20px;
+    button.btn.decrease-unit {
+      color: $primary-grey;
+      padding-left: 0px;
+      padding-right: 20px;
+    }
+    button.btn.increase-unit {
+      color: $green;
+    }
   }
 }
 
