@@ -12,7 +12,10 @@
 @import "pages/index";
 @import "pages/items";
 
-h1 {
-  font-size:  24px;
-  font-weight: 800;
+body {
+  color: $dark;
+  h1 {
+    font-size:  24px;
+    font-weight: 800;
+  }
 }
