@@ -34,8 +34,8 @@ font-size: 30px;
   margin-bottom: 10px
 }
 
-.card-item{
-  padding:8px
+.card-body {
+  padding:8px;
 }
 
 .card-body {
@@ -48,4 +48,9 @@ font-size: 30px;
   display:flex;
   justify-content: flex-bottom
 
+}
+
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
 }
