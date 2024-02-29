@@ -81,3 +81,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# PgSearch [github.com/Casecommons/pg_search]
+gem "pg_search"
+

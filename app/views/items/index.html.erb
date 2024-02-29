@@ -1,0 +1,26 @@
+<%= link_to "Home", root_path %>
+
+<div class="container">
+  <div class="search-bar text-center">
+    <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search..."
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <% if @items.any? %>
+      <% @items.each do |item| %>
+        <%= render "item-card", item: item %>
+      <% end %>
+    <% else %>
+      <p>No results found. Sorry :(</p>
+    <% end %>
+  </div>
+</div>

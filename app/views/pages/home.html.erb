@@ -13,12 +13,14 @@
 </div>
 
 <div class="search-bar text-center">
-  <form action="/search" method="get" class="search-form">
-    <div class="input-wrapper">
-      <input type="text" name="query" placeholder="Search..." class="search-input" />
-      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-    </div>
-  </form>
+  <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type a keyword"
+      %>
+    <%= submit_tag "Search...", name: "", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
 <div class="container" id="home_container_id">
