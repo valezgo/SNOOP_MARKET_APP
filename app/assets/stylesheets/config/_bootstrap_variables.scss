@@ -6,6 +6,8 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
+$body-bg:                $white;
+$font-size-base:         1rem;
 
 $body-bg:                $white;
 $body-bg:                $disabled-grey;
@@ -18,6 +20,7 @@ $success:    $green;
 $info:       $yellow;
 $danger:     $primary-red;
 $warning:    $orange;
+
 // Buttons & inputs’ radius
 $border-radius:    2px;
 $border-radius-lg: 2px;

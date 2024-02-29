@@ -5,14 +5,14 @@ User.destroy_all
 # Create the categories array
 
 categories = [
-  { name: "Fruits", description: "Fresh Fruits" },
-  { name: "Vegetables", description: "Fresh Vegetables" },
-  { name: "Dairy", description: "Milk, Cheese, Yogurt" },
-  { name: "Meat", description: "Chicken, Beef, Pork" },
-  { name: "Bakery", description: "Bread, Pastries, Cakes" },
-  { name: "Snacks", description: "Chips, Nuts, Crackers" },
-  { name: "Beverages", description: "Sodas, Juices, Tea" },
-  { name: "Condiments", description: "Sauces, Spices, Dressings" }
+  { name: "Fruits", description: "Fresh Fruits", color: "primary-red" },
+  { name: "Vegetables", description: "Fresh Vegetables", color: "green" },
+  { name: "Dairy", description: "Milk, Cheese, Yogurt", color: "yellow" },
+  { name: "Meat", description: "Chicken, Beef, Pork", color: "secondary-red" },
+  { name: "Bakery", description: "Bread, Pastries, Cakes", color: "purple" },
+  { name: "Snacks", description: "Chips, Nuts, Crackers", color: "pink" },
+  { name: "Beverages", description: "Sodas, Juices, Tea", color: "secondary-blue" },
+  { name: "Condiments", description: "Sauces, Spices, Dressings", color: "orange" }
 ]
 
 # Create the users array
@@ -97,7 +97,7 @@ items = {
 # Iterate through categories and create new instances of the categories
 
 categories.each do |category|
-  Category.create!(name: category[:name], description: category[:description])
+  Category.create!(name: category[:name], description: category[:description], color: category[:color])
 end
 
 # Iterate through users and create new instances of the users
@@ -114,12 +114,17 @@ end
 
 Category.all.each do |category|
   items[category.name.downcase.to_sym].each do |item|
-    Item.create!(
+    new_item = Item.new(
       category: category,
       name: item[:name],
       description: item[:description],
       quantity: item[:quantity],
       price: item[:price]
     )
+
+    file = URI.open("https://source.unsplash.com/random/?#{item[:name]}")
+
+    new_item.photo.attach(io: file, filename: "#{item[:name]}.png", content_type: "image/png")
+    new_item.save
   end
 end
