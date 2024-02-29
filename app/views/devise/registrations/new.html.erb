@@ -1,12 +1,12 @@
+<%= link_to "Home", root_path %>
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
   <div style="margin-bottom: 20px;">
-    <%= image_tag "super-logo.png", alt: "Logo", width: 100, style: "vertical-align: middle;" %>
+    <%= image_tag "snoop-market-logo.png", alt: "Logo", width: 100, style: "vertical-align: middle;" %>
   </div>
 
  <div style="text-align: left; max-width: 400px;">
     <h2>Sign up</h2>
     <p class="small-p">Enter your credentials to continue</p>
-
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
@@ -25,4 +25,5 @@
       <%= f.button :submit, "Sign up", class: "btn-green-primary" %>
     <% end %>
     <%= render "devise/shared/links" %>
-  </div>
+  <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+</div>
