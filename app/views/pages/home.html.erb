@@ -1,22 +1,29 @@
+  <div class="header-buttons-container">
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-sm mr-2" %>
+    <%= link_to "Sign out", destroy_user_session_path, class: "btn btn-secondary btn-sm", data: {turbo_method: :delete} %>
+  </div>
+
 <div class="header text-center">
   <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px;" %>
     <div>
-      <div style="display: inline-block; margin-bottom: 15px;">
+      <div style="display: inline-block;">
         <i class="fa-solid fa-location-dot"></i> <p style="display: inline;">Barcelona, Spain</p>
       </div>
     </div>
 </div>
 
 <div class="search-bar text-center">
-  <form action="/search" method="get" class="search-form">
-    <div class="input-wrapper">
-      <input type="text" name="query" placeholder="Search..." class="search-input" />
-      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-    </div>
-  </form>
+  <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type a keyword"
+      %>
+    <%= submit_tag "Search...", name: "", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
-<div class="container">
+<div class="container" id="home_container_id">
   <div class="row justify-content-center">
     <% @categories.each_slice(2) do |category_row| %>
       <div class="col-sm-4 my-3">
@@ -41,16 +48,8 @@
     <span>Shop</span>
   </div>
   <div class="button-column">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span>Explore</span>
-  </div>
-  <div class="button-column">
     <i class="fa-solid fa-cart-shopping"></i>
     <span>Cart</span>
-  </div>
-  <div class="button-column">
-    <i class="fa-solid fa-heart"></i>
-    <span>Favorite</span>
   </div>
   <div class="button-column">
     <i class="fa-solid fa-user"></i>
