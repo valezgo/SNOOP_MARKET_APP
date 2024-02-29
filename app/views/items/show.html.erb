@@ -3,6 +3,7 @@
   <%= cl_image_tag @item.photo.key  %>
 </div>
 <div class="container item-show" style="margin-bottom: 100px;">
+  <%= link_to "Edit", edit_item_path(@item) %>
   <div class="item-header">
     <div class="item-header-top">
       <div class="item-header-label">
