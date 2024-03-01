@@ -20,7 +20,7 @@ categories = [
 users = [
   { email: "ciscotomaramo@gmail.com", password: "password" },
   { email: "msvalerialg@gmail.com", password: "password" },
-  { email: "martin.guido.r17@gmail.com", password: "password" },
+  { email: "martin.guido.r17@gmail.com", password: "password"},
   { email: "ottatinicolas91@gmail.com", password: "password" },
 
 ]

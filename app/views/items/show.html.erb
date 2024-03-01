@@ -3,8 +3,8 @@
   <%= cl_image_tag @item.photo.key  %>
 </div>
 <div class="container item-show" style="margin-bottom: 100px;">
-  <%= link_to "Edit", edit_item_path(@item) %>
-  <%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <%= link_to "Edit", edit_item_path(@item) class: "btn-green-primary" %>
+  <%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} class: "btn-green-primary"%>
   <div class="item-header">
     <div class="item-header-top">
       <div class="item-header-label">
