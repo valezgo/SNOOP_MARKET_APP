@@ -1,0 +1,99 @@
+.card-basket {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.basket-images {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+  object-fit: cover
+
+}
+
+.card-content {
+  display: inline-block;
+  vertical-align: top; /* Align text content to the top */
+}
+
+.btn-checkout {
+  background-color: #53B175;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0; /* Adjust margin to have equal spacing on top and bottom */
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 24px;
+  width: 400px;
+  height: 46px;
+}
+
+.checkout-button{
+  text-decoration: none;
+  color: white;
+}
+
+.btn-success {
+  display: inline-block;
+}
+
+.btn-success + .btn-success {
+  margin-left: 5px; /* Adjust as needed to add space between buttons */
+}
+
+.btn-delete{
+  background-color: #838a86;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 24px;
+  width: 46px;
+  height: 46px;
+  opacity: 0.5;
+}
+
+
+.card-text{
+  padding: 10px;
+  text-align: center;
+}
+
+.image-div-snoop{
+  padding: 10px;
+}
+
+.total-price {
+  text-align: left;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.total-price p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.total-price span {
+  font-weight: bold;
+  color: #53B175;
+}

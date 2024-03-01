@@ -1,0 +1,91 @@
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1.5rem 0;
+  flex: 1; /* El título ocupará el espacio restante */
+  text-align: center; /* Centra horizontalmente el título */
+}
+.section-header {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  .back-button{
+    color: $dark;
+    margin-right: 10px; /* Espacio entre el icono y el título */
+  }
+}
+
+.section-body {
+  .purchase-form {
+    .total-cost-collapse {
+      padding: 8px 0;
+      border-bottom: 1px solid $disabled-grey;
+      p {
+        margin-bottom: 0;
+      } .card-collapse-label {
+        color: $primary-grey;
+      }
+      .card-label {
+        display: flex;
+        justify-content: space-between;
+        .total-cost-expand {
+          display: flex;
+          align-items: center;
+          p {
+            margin-right: 8px;
+          }
+          .expand-button {
+            color: $dark;
+          }
+        }
+      }
+      .cart-items{
+        list-style: none;
+        .item-container {
+          font-weight: 600;
+          font-size: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+    .terms-and-conditions {
+      padding: 8px 0;
+      text-align: center;
+      p.terms {
+        font-size: 12px;
+        color: $primary-grey;
+        margin-bottom: 0px;
+        span {
+          color: $dark;
+          font-weight: 600;
+        }
+      }
+    }
+  } .checkout-button-container {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      background-color: white;
+      padding: 16px 32px 40px 32px;
+      .checkout-button {
+        background-color: $green;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 25px;
+        font-size: 18px;
+        width: 100%;
+      input.btn {
+        color: white;
+      }
+    }
+  }
+}
+
