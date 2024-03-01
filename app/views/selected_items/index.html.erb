@@ -32,17 +32,18 @@
         <% total_price += selected_item.item.price * count %>
       <% end %>
       <div class="row">
-      <div class="col-sm-12 total-price">
-        <p>Total: <span><%= total_price %>€</span></p>
+        <div class="col-sm-12 total-price">
+          <p>Total: <span><%= total_price.round(2) %>€</span></p>
+        </div>
       </div>
-      </div>
+
     <% else %>
       <p>Your basket is empty.</p>
     <% end %>
-    <div class="row">
-      <div class="col-sm-12">
-        <button class= "btn-green-primary" type="button"><strong><%=link_to "Go to Checkout", new_purchase_path,  class: "checkout-button" %></strong></button>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button class= "btn-green-primary" type="button"><strong><%=link_to "Go to Checkout", new_purchase_path,  class: "checkout-button" %></strong></button>
     </div>
   </div>
 </div>
