@@ -13,6 +13,8 @@
 
   <body>
     <%= yield %>
-    <%= render "layouts/navbar-footer" %>
+    <% unless params[:controller] = "items" && params[:action] == 'show' %>
+      <%= render "layouts/navbar-footer" %>
+    <% end %>
   </body>
 </html>

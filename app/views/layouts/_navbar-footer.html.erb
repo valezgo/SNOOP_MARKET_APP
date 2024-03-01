@@ -8,7 +8,7 @@
   <div class="button-column">
     <% if current_user && current_user.admin? %>
       <i class="fa-solid fa-plus"></i>
-      <%= link_to items_path, class: "no-link-style" do %>
+      <%= link_to new_item_path, class: "no-link-style" do %>
         <span>Inventory</span>
       <% end %>
     <% else %>
