@@ -40,6 +40,11 @@
   height: 46px;
 }
 
+.checkout-button{
+  text-decoration: none;
+  color: white;
+}
+
 .btn-success {
   display: inline-block;
 }
@@ -77,5 +82,18 @@
 }
 
 .total-price {
+  text-align: left;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
 
+.total-price p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.total-price span {
+  font-weight: bold;
+  color: #53B175;
 }
