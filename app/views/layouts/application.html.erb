@@ -13,6 +13,9 @@
 
   <body>
      <%= yield %>
+     <% unless devise_controller? %>
+      <%= render "layouts/navbar-footer" %>
+     <% end %>
   </body>
 </html>
 </div>

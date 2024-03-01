@@ -1,7 +1,9 @@
-  <div class="header-buttons-container">
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-sm mr-2" %>
-    <%= link_to "Sign out", destroy_user_session_path, class: "btn btn-secondary btn-sm", data: {turbo_method: :delete} %>
-  </div>
+<div class="header-buttons-container">
+  <%= link_to destroy_user_session_path, class: "no-link-style", data: {turbo_method: :delete} do %>
+    <i class="fa-regular fa-user"></i>
+    <span>Sign out</span>
+  <% end %>
+</div>
 
 <div class="header text-center">
   <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; margin-top: 30px" %>
@@ -44,24 +46,46 @@
   </div>
 </div>
 
-<div class="navbar fixed-bottom">
-  <div class="button-column">
-    <i class="fa-solid fa-shop"></i>
+<% if current_user && current_user.admin? %>
+  <div class="navbar fixed-bottom">
+    <div class="button-column">
+      <i class="fa-solid fa-shop"></i>
       <%= link_to root_path, class: "no-link-style" do %>
-      <span>Shop</span>
-    <% end %>
+        <span>Shop</span>
+      <% end %>
+    </div>
+    <div class="button-column">
+      <i class="fa-solid fa-plus"></i>
+      <%= link_to items_path, class: "no-link-style" do %>
+        <span>Inventory</span>
+      <% end %>
+    </div>
+    <div class="button-column">
+      <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+        <span>Login</span>
+      <% end %>
+    </div>
   </div>
-  <div class="button-column">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span><%=link_to "Cart" , selected_items_path(@selected_item)%></span>
+<% else %>
+  <div class="navbar fixed-bottom">
+    <div class="button-column">
+      <i class="fa-solid fa-shop"></i>
+      <%= link_to root_path, class: "no-link-style" do %>
+        <span>Shop</span>
+      <% end %>
+    </div>
+    <div class="button-column">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <%= link_to selected_items_path, class: "no-link-style" do %>
+        <span>Cart</span>
+      <% end %>
+    </div>
+    <div class="button-column">
+      <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+        <span>Login</span>
+      <% end %>
+    </div>
   </div>
-  <div class="button-column">
-    <i class="fa-solid fa-heart"></i>
-<span>  "Favorite" </span>
-  </div>
-  <div class="button-column">
-
-    <i class="fa-solid fa-user"></i>
-    <span>Account</span>
-  </div>
-</div>
+<% end %>
