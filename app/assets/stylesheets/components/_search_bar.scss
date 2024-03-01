@@ -3,17 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 .search-form {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 7px;
+  margin-bottom: 0;
 }
 
 .search-input {
-  padding-right: 0px;
+  padding-right: 0;
   padding-left: 15px;
   background-color: $disabled-grey;
   border-radius: 10px;
@@ -36,9 +35,8 @@
 
 .search-bar {
   position: sticky;
-  top: 0px;
-  padding-top: 10px;
-  padding-bottom: 0px;
+  top: 0;
+  padding: 10px 0;
   width: 100%;
   background-color: $white;
   z-index: 999;

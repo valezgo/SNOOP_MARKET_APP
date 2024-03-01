@@ -23,14 +23,3 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-def index
-    @items = Item.all
-    if params[:query].present?
-      sql_subquery = <<~SQL
-        items.name @@ :query
-        OR items.description @@ :query
-        OR categories.name @@ :query
-      SQL
-      @items = @items.joins(:category).where(sql_subquery, query: "%#{params[:query]}%")
-    end
-  end
