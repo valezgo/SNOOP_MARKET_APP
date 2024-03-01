@@ -61,6 +61,6 @@
     </div>
   </div>
   <div id="add-to-basket-btn">
-    <%= link_to "Add To Basket", "#", class: "btn-green-primary"%>
+<%= link_to "Add To Basket", selected_items_path(item_id: @item), data: {turbo_method: :post}, class: "btn-green-primary" %>
   </div>
 </div>
