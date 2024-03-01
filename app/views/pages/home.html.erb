@@ -53,9 +53,14 @@
   </div>
   <div class="button-column">
     <i class="fa-solid fa-cart-shopping"></i>
-    <span>Cart</span>
+    <span><%=link_to "Cart" , selected_items_path(@selected_item)%></span>
   </div>
   <div class="button-column">
+    <i class="fa-solid fa-heart"></i>
+<span>  "Favorite" </span>
+  </div>
+  <div class="button-column">
+
     <i class="fa-solid fa-user"></i>
     <span>Account</span>
   </div>
