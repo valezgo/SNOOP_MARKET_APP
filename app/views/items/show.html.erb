@@ -3,8 +3,11 @@
   <%= cl_image_tag @item.photo.key  %>
 </div>
 <div class="container item-show" style="margin-bottom: 100px;">
-  <%= link_to "Edit", edit_item_path(@item) class: "btn-green-primary" %>
-  <%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} class: "btn-green-primary"%>
+  <%= link_to :back, class: 'back-button me-2' do %> <!-- link_to 'prefix selected_items' -->
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+  <%= link_to "Edit", edit_item_path(@item) %>
+  <%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
   <div class="item-header">
     <div class="item-header-top">
       <div class="item-header-label">
@@ -63,6 +66,6 @@
     </div>
   </div>
   <div id="add-to-basket-btn">
-<%= link_to "Add To Basket", selected_items_path(item_id: @item), data: {turbo_method: :post}, class: "btn-green-primary" %>
+    <%= link_to "Add To Basket", selected_items_path(item_id: @item), data: {turbo_method: :post}, class: "btn-green-primary" %>
   </div>
 </div>

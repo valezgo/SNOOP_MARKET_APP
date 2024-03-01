@@ -1,45 +1,70 @@
-<div class ="image-div-snoop"style="text-align: center;">
-  <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; display: inline-block;" %>
-</div>
-<h1 class="card-text">My Cart</h1>
-<div class="container-basket">
-  <% total_price = 0 %>
-  <% quantity = 1%>
-  <% if @selected_items.present? %>
-    <% item_counts = @selected_items.group_by(&:item_id).transform_values(&:count) %>
-    <% item_counts.each do |item_id, count| %>
-      <% selected_item = @selected_items.find { |si| si.item_id == item_id } %>
-      <div class=" card-basket">
-        <div>
-          <%= cl_image_tag selected_item.item.photo.key, alt: "Fruit", class: "basket-images" %>
-        </div>
-        <div>
-          <h6><%= selected_item.item.name %> (<%= count %> item/s)</h6>
-          <p><%= selected_item.item.price %>€</p>
-            <div>
-              <button class="btn btn-success btn-sm" type="button"><strong>-</strong></button>
-              <%=quantity%>
-              <button class="btn btn-success btn-sm" type="button"><strong>+</strong></button>
-            </div>
-              <div class="btn btn-delete" type="button">
-              <strong><%= link_to "X", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></strong>
-              <%# .id not mandatory, Rails will intuitively fetch the id if just selected_item is passed %>
+
+<div class="container">
+  <div class ="image-div-snoop"style="text-align: center;">
+    <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; display: inline-block;" %>
+  </div>
+  <h1 class="card-text">My Cart</h1>
+  <div class="container-basket">
+    <% total_price = 0 %>
+    <% quantity = 1%>
+    <% if @selected_items.present? %>
+      <% item_counts = @selected_items.group_by(&:item_id).transform_values(&:count) %>
+      <% item_counts.each do |item_id, count| %>
+        <% selected_item = @selected_items.find { |si| si.item_id == item_id } %>
+        <div class=" card-basket">
+          <div>
+            <%= cl_image_tag selected_item.item.photo.key, alt: "Fruit", class: "basket-images" %>
+          </div>
+          <div>
+            <h6><%= selected_item.item.name %> (<%= count %> item/s)</h6>
+            <p><%= selected_item.item.price %>€</p>
+              <div>
+                <button class="btn btn-success btn-sm" type="button"><strong>-</strong></button>
+                <%=quantity%>
+                <button class="btn btn-success btn-sm" type="button"><strong>+</strong></button>
               </div>
+                <div class="btn btn-delete" type="button">
+                <strong><%= link_to "Remove Item", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"delete-text"%></strong>
+                <%# .id not mandatory, Rails will intuitively fetch the id if just selected_item is passed %>
+                </div>
+          </div>
+        </div>
+        <% total_price += selected_item.item.price * count %>
+      <% end %>
+      <div class="row">
+        <div class="col-sm-12 total-price">
+          <p>Total: <span><%= total_price.round(2) %>€</span></p>
         </div>
       </div>
-      <% total_price += selected_item.item.price * count %>
+
+    <% else %>
+      <p>Your basket is empty.</p>
     <% end %>
-    <div class="row">
-     <div class="col-sm-12 total-price">
-      <p>Total: <span><%= total_price %>€</span></p>
-    </div>
-    </div>
-  <% else %>
-    <p>Your basket is empty.</p>
-  <% end %>
+  </div>
   <div class="row">
     <div class="col-sm-12">
       <button class= "btn-green-primary" type="button"><strong><%=link_to "Go to Checkout", new_purchase_path,  class: "checkout-button" %></strong></button>
     </div>
+  </div>
+</div>
+
+<div class="navbar fixed-bottom">
+  <div class="button-column">
+    <i class="fa-solid fa-shop"></i>
+      <%= link_to root_path, class: "no-link-style" do %>
+      <span>Shop</span>
+    <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-cart-shopping"></i>
+      <%= link_to selected_items_path, class: "no-link-style" do %>
+        <span>Cart</span>
+      <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+      <span>Login</span>
+      <% end %>
   </div>
 </div>

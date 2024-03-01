@@ -1,3 +1,5 @@
+Selecteditem.destroy_all
+Purchase.destroy_all
 Item.destroy_all
 Category.destroy_all
 User.destroy_all
@@ -20,7 +22,7 @@ categories = [
 users = [
   { email: "ciscotomaramo@gmail.com", password: "password" },
   { email: "msvalerialg@gmail.com", password: "password" },
-  { email: "martin.guido.r17@gmail.com", password: "password"},
+  { email: "martin.guido.r17@gmail.com", password: "password", admin: true },
   { email: "ottatinicolas91@gmail.com", password: "password" },
 
 ]

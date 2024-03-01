@@ -32,4 +32,23 @@
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<div class="navbar fixed-bottom">
+  <div class="button-column">
+    <i class="fa-solid fa-shop"></i>
+      <%= link_to root_path, class: "no-link-style" do %>
+      <span>Shop</span>
+    <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-cart-shopping"></i>
+      <%= link_to selected_items_path, class: "no-link-style" do %>
+        <span>Cart</span>
+      <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+      <span>Login</span>
+      <% end %>
+  </div>
+</div>
