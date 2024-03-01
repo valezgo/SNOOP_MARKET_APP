@@ -1,25 +1,9 @@
+<%= link_to "Back", :back %>
 <div class="container">
   <div class="row justify-content-center">
-  <h5 class="card-title"><%= @category.name %></h5>
+    <h5 class="card-title"><%= @category.name %></h5>
     <% @category.items.each do |item| %>
-      <div class="col-6 px-0">
-        <%=link_to item_path(item), class: "no-link-style" do %>
-          <div class="card-item" text-decoration="none">
-            <div class="card-body">
-              <div class="card" style="border-radius: 10px;">
-                <div class="card-body">
-                  <%= cl_image_tag item.photo.key, alt: "Fruit", class: "fruit-image" %>
-                  <h6 class="card-subtitle mb-2 text-muted"><strong><%= item.name %></strong></h6>
-                  <p class="item-price"><strong>€<%= item.price %></strong></p>
-                  <div class="d-flex justify-content-end">
-                    <button class="btn btn-success btn-sm" type="button"><strong>+</strong></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render "items/item-card", item: item %>
     <% end %>
   </div>
 </div>

@@ -9,6 +9,7 @@
 .search-form {
   display: inline-flex;
   align-items: center;
+  margin-bottom: 7px;
 }
 
 .search-input {
@@ -36,8 +37,8 @@
 .search-bar {
   position: sticky;
   top: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 0px;
   width: 100%;
   background-color: $white;
   z-index: 999;
