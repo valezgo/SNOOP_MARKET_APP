@@ -4,7 +4,7 @@
   </div>
 
 <div class="header text-center">
-  <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px;" %>
+  <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; margin-top: 30px" %>
     <div>
       <div style="display: inline-block;">
         <i class="fa-solid fa-location-dot"></i> <p style="display: inline;">Barcelona, Spain</p>
@@ -13,17 +13,19 @@
 </div>
 
 <div class="search-bar text-center">
-  <%= form_with url: items_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Type a keyword"
-      %>
-    <%= submit_tag "Search...", name: "", class: "btn btn-primary" %>
+  <%= form_with url: items_path, method: :get, class: "search-form" do %>
+    <div class="input-wrapper">
+      <%= text_field_tag :query,
+            params[:query],
+            class: "search-input form-control",
+            placeholder: "What can we help you find?"
+        %>
+      <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
   <% end %>
 </div>
 
-<div class="container" id="home_container_id">
+<div class="category-card-container">
   <div class="row justify-content-center">
     <% @categories.each_slice(2) do |category_row| %>
       <div class="col-sm-4 my-3">
@@ -45,7 +47,9 @@
 <div class="navbar fixed-bottom">
   <div class="button-column">
     <i class="fa-solid fa-shop"></i>
-    <span>Shop</span>
+      <%= link_to root_path, class: "no-link-style" do %>
+      <span>Shop</span>
+    <% end %>
   </div>
   <div class="button-column">
     <i class="fa-solid fa-cart-shopping"></i>
