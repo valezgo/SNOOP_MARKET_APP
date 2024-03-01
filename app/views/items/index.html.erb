@@ -1,16 +1,14 @@
-<%= link_to "Home", root_path %>
-
-<div class="container">
-  <div class="search-bar text-center">
-    <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+<div class="search-bar text-center">
+  <%= form_with url: items_path, method: :get, class: "search-form" do %>
+    <div class="input-wrapper">
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
-            placeholder: "Search..."
+            class: "search-input form-control",
+            placeholder: "What can we help you find?"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+      <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  <% end %>
 </div>
 
 <div class="container">
@@ -22,5 +20,26 @@
     <% else %>
       <p>No results found. Sorry :(</p>
     <% end %>
+  </div>
+</div>
+
+<div class="navbar fixed-bottom">
+  <div class="button-column">
+    <i class="fa-solid fa-shop"></i>
+      <%= link_to root_path, class: "no-link-style" do %>
+      <span>Shop</span>
+    <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-cart-shopping"></i>
+      <%= link_to selected_items_path, class: "no-link-style" do %>
+        <span>Cart</span>
+      <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+      <span>Login</span>
+      <% end %>
   </div>
 </div>

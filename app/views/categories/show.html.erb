@@ -1,13 +1,12 @@
- <div class ="image-div-snoop"style="text-align: center;">
+<div class ="image-div-snoop"style="text-align: center;">
   <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; display: inline-block;" %>
 </div>
-      <h5 class="card-title"><%= @category.name %></h5>
 
-  <%= link_to "Back", :back %>
-  <div class="container">
-    <div class="row justify-content-center">
-      <% @category.items.each do |item| %>
-        <%= render "items/item-card", item: item %>
-      <% end %>
-    </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <h5 class="card-title"><%= @category.name %></h5>
+    <% @category.items.each do |item| %>
+      <%= render "items/item-card", item: item %>
+    <% end %>
   </div>
+</div>

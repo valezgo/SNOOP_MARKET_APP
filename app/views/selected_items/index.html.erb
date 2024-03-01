@@ -44,3 +44,24 @@
     </div>
   </div>
 </div>
+
+<div class="navbar fixed-bottom">
+  <div class="button-column">
+    <i class="fa-solid fa-shop"></i>
+      <%= link_to root_path, class: "no-link-style" do %>
+      <span>Shop</span>
+    <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-cart-shopping"></i>
+      <%= link_to selected_items_path, class: "no-link-style" do %>
+        <span>Cart</span>
+      <% end %>
+  </div>
+  <div class="button-column">
+    <i class="fa-solid fa-user"></i>
+      <%= link_to user_session_path, class: "no-link-style" do %>
+      <span>Login</span>
+      <% end %>
+  </div>
+</div>
