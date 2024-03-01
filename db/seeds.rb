@@ -1,3 +1,5 @@
+Selecteditem.destroy_all
+Purchase.destroy_all
 Item.destroy_all
 Category.destroy_all
 User.destroy_all

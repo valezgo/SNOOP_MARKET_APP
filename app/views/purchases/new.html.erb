@@ -1,51 +1,71 @@
-<div class="section-header">
-  <%= link_to :back, class: 'back-button' do %> <!-- link_to 'prefix selected_items' -->
-    <i class="fa-solid fa-chevron-left"></i>
-  <% end %>
-  <h2>Checkout</h2>
-</div>
+<div class="container">
+  <div class="section-header">
+    <%= link_to :back, class: 'back-button' do %> <!-- link_to 'prefix selected_items' -->
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+    <h2>Checkout</h2>
+  </div>
 
-<div class="section-body">
-  <div class="purchase-form">
-    <%= simple_form_for @purchase do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :address %>
-      <div class="total-cost-collapse">
-        <div class="card-collapse">
-          <div class="card-label">
-            <p class="card-collapse-label">Total cost</p>
-            <div class="total-cost-expand">
-              <p class="total-cost"><%= @total_price %>€</p>
-              <%= link_to '#', class: 'expand-button' do %> <!-- link_to '/items/:item_id/selected_items' -->
-                <i class="fa-solid fa-chevron-right" id="expand-button"></i>
-              <% end %>
+  <div class="section-body">
+    <div class="purchase-form">
+      <%= simple_form_for @purchase do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :address %>
+        <div class="total-cost-collapse">
+          <div class="card-collapse">
+            <div class="card-label">
+              <p class="card-collapse-label">Total cost</p>
+              <div class="total-cost-expand">
+                <p class="total-cost"><%= @total_price %>€</p>
+                <%= link_to '#', class: 'expand-button' do %> <!-- link_to '/items/:item_id/selected_items' -->
+                  <i class="fa-solid fa-chevron-right" id="expand-button"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="card-details">
+              <ul class="cart-items">
+                <% @selected_items.each do |selected_item| %>
+                  <li>
+                    <div class="item-container">
+                      <span class="item-name"><%= selected_item.item.name %></span>
+                      <span class="subtotal-per-item"><%= selected_item.quantity * selected_item.item.price %>€</span>
+                    </div>
+                  </li>                
+                <% end %>
+                
+
+              </ul>
             </div>
           </div>
-          <div class="card-details">
-            <ul class="cart-items">
-              <% @selected_items.each do |selected_item| %>
-                <li>
-                  <div class="item-container">
-                    <span class="item-name"><%= selected_item.item.name %></span>
-                    <span class="subtotal-per-item"><%= selected_item.quantity * selected_item.item.price %>€</span>
-                  </div>
-                </li>                
-              <% end %>
-              
-
-            </ul>
-          </div>
         </div>
+        <div class="terms-and-conditions">
+          <p class="terms">By placing an order you agree to our <span>Terms</span> and <span>Conditions</span></p>
+        </div>
+        <div class="checkout-button-container">
+          <%= f.button :submit, value: "Place order", class: "checkout-button", data: { toggle: "modal", target: "#confirmPurchase" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmPurchase" tabindex="-1" role="dialog" aria-labelledby="confirmPurchaseLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmPurchaseLabel">Purchase confirmed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="terms-and-conditions">
-        <p class="terms">By placing an order you agree to our <span>Terms</span> and <span>Conditions</span></p>
+      <div class="modal-body">
+        Congratulations for your purchase, you can expect the delivery to happen within the next 48h. 😀
       </div>
-      <div class="checkout-button-container">
-        <%= link_to '#', class: 'checkout-button' do %>
-          <%= f.button :submit, value: "Place order" %>
-        <% end %>
+      <div class="modal-footer">
+        <%= link_to "OK", root_path, class: "btn btn-secondary" %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
