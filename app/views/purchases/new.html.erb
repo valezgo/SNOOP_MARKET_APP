@@ -43,11 +43,29 @@
           <p class="terms">By placing an order you agree to our <span>Terms</span> and <span>Conditions</span></p>
         </div>
         <div class="checkout-button-container">
-          <%= link_to '#', class: 'checkout-button' do %>
-            <%= f.button :submit, value: "Place order" %>
-          <% end %>
+          <%= f.button :submit, value: "Place order", class: "checkout-button", data: { toggle: "modal", target: "#confirmPurchase" } %>
         </div>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmPurchase" tabindex="-1" role="dialog" aria-labelledby="confirmPurchaseLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmPurchaseLabel">Purchase confirmed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Congratulations for your purchase, you can expect the delivery to happen within the next 48h. 😀
+      </div>
+      <div class="modal-footer">
+        <%= link_to "OK", root_path, class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>
