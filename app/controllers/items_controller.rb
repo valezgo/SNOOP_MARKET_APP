@@ -11,10 +11,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to item_path(@item), notice: 'Item created!'
+    if @item.save
+      redirect_to item_path(@item), notice: 'Item created!'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
- 
+
   def index
     @items = Item.all
     if params[:query].present?
@@ -25,6 +28,25 @@ class ItemsController < ApplicationController
       SQL
       @items = @items.joins(:category).where(sql_subquery, query: "%#{params[:query]}%")
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: 'Item updated!'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path, notice: 'Item deleted'
   end
 
   private
