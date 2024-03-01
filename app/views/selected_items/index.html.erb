@@ -22,7 +22,7 @@
               <button class="btn btn-success btn-sm" type="button"><strong>+</strong></button>
             </div>
               <div class="btn btn-delete" type="button">
-              <strong><%= link_to "X", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></strong>
+              <strong><%= link_to "Remove Item", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"delete-text"%></strong>
               <%# .id not mandatory, Rails will intuitively fetch the id if just selected_item is passed %>
               </div>
         </div>

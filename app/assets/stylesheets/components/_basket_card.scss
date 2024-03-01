@@ -20,7 +20,7 @@
 
 .card-content {
   display: inline-block;
-  vertical-align: top; /* Align text content to the top */
+  vertical-align: top;
 }
 
 .btn-checkout {
@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0; /* Adjust margin to have equal spacing on top and bottom */
+  margin: 10px 0;
   cursor: pointer;
   border-radius: 15px;
   font-size: 24px;
@@ -50,10 +50,10 @@
 }
 
 .btn-success + .btn-success {
-  margin-left: 5px; /* Adjust as needed to add space between buttons */
+  margin-left: 5px;
 }
 
-.btn-delete{
+.delete-button {
   background-color: #838a86;
   border: none;
   color: white;
@@ -62,13 +62,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px 4px;
   cursor: pointer;
   border-radius: 15px;
   font-size: 24px;
   width: 46px;
   height: 46px;
   opacity: 0.5;
+  margin-top: 10px;
+  margin-left: auto; 
+}
+
+.delete-text{
+  text-decoration: none;
 }
 
 
@@ -82,7 +87,7 @@
 }
 
 .total-price {
-  text-align: left;
+  text-align: lefte;
   margin-top: 20px;
   border-top: 1px solid #ddd;
   padding-top: 10px;
