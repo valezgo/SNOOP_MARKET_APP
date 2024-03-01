@@ -1,13 +1,16 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
-  <div style="margin-bottom: 20px;">
-    <%= image_tag "snoop-market-logo.png", alt: "Logo", width: 100, style: "vertical-align: middle;" %>
+<div class="container">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="margin-bottom: 20px;">
+      <%= image_tag "snoop-market-logo.png", alt: "Logo", width: 100, style: "vertical-align: middle;" %>
+    </div>
+    <%= simple_form_for(@item) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :category_id, collection: Category.all %>
+      <%= f.input :quantity %>
+      <%= f.input :price %>
+      <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create item", class: "btn-green-primary" %>
+    <% end %>
   </div>
-  <%= simple_form_for(@item) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :category_id, collection: Category.all %>
-    <%= f.input :quantity %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Create item", class: "btn-green-primary" %>
-  <% end %>
+</div>
