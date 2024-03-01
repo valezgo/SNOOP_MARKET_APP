@@ -1,4 +1,4 @@
-<div class="container">
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,10 +12,7 @@
   </head>
 
   <body>
-     <%= yield %>
-     <% unless devise_controller? %>
-      <%= render "layouts/navbar-footer" %>
-     <% end %>
+    <%= yield %>
+    <%= render "layouts/navbar-footer" %>
   </body>
 </html>
-</div>

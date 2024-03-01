@@ -27,7 +27,7 @@
   <% end %>
 </div>
 
-<div class="category-card-container">
+<div class="container" id="home_container_id">
   <div class="row justify-content-center">
     <% @categories.each_slice(2) do |category_row| %>
       <div class="col-sm-4 my-3">
@@ -45,47 +45,3 @@
     <% end %>
   </div>
 </div>
-
-<% if current_user && current_user.admin? %>
-  <div class="navbar fixed-bottom">
-    <div class="button-column">
-      <i class="fa-solid fa-shop"></i>
-      <%= link_to root_path, class: "no-link-style" do %>
-        <span>Shop</span>
-      <% end %>
-    </div>
-    <div class="button-column">
-      <i class="fa-solid fa-plus"></i>
-      <%= link_to items_path, class: "no-link-style" do %>
-        <span>Inventory</span>
-      <% end %>
-    </div>
-    <div class="button-column">
-      <i class="fa-solid fa-user"></i>
-      <%= link_to user_session_path, class: "no-link-style" do %>
-        <span>Login</span>
-      <% end %>
-    </div>
-  </div>
-<% else %>
-  <div class="navbar fixed-bottom">
-    <div class="button-column">
-      <i class="fa-solid fa-shop"></i>
-      <%= link_to root_path, class: "no-link-style" do %>
-        <span>Shop</span>
-      <% end %>
-    </div>
-    <div class="button-column">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <%= link_to selected_items_path, class: "no-link-style" do %>
-        <span>Cart</span>
-      <% end %>
-    </div>
-    <div class="button-column">
-      <i class="fa-solid fa-user"></i>
-      <%= link_to user_session_path, class: "no-link-style" do %>
-        <span>Login</span>
-      <% end %>
-    </div>
-  </div>
-<% end %>

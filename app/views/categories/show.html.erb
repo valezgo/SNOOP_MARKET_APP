@@ -1,3 +1,6 @@
+<div class ="image-div-snoop"style="text-align: center;">
+  <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; display: inline-block;" %>
+</div>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -5,26 +8,5 @@
     <% @category.items.each do |item| %>
       <%= render "items/item-card", item: item %>
     <% end %>
-  </div>
-</div>
-
-<div class="navbar fixed-bottom">
-  <div class="button-column">
-    <i class="fa-solid fa-shop"></i>
-      <%= link_to root_path, class: "no-link-style" do %>
-      <span>Shop</span>
-    <% end %>
-  </div>
-  <div class="button-column">
-    <i class="fa-solid fa-cart-shopping"></i>
-      <%= link_to selected_item_path, class: "no-link-style" do %>
-        <span>Cart</span>
-      <% end %>
-  </div>
-  <div class="button-column">
-    <i class="fa-solid fa-user"></i>
-      <%= link_to user_session_path, class: "no-link-style" do %>
-      <span>Login</span>
-      <% end %>
   </div>
 </div>

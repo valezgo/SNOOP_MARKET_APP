@@ -1,3 +1,4 @@
+
 <div class ="image-div-snoop"style="text-align: center;">
   <%= image_tag "snoop.png", alt: "Logo", width: 100, style: "margin-bottom: 5px; display: inline-block;" %>
 </div>
@@ -22,7 +23,7 @@
               <button class="btn btn-success btn-sm" type="button"><strong>+</strong></button>
             </div>
               <div class="btn btn-delete" type="button">
-              <strong><%= link_to "X", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></strong>
+              <strong><%= link_to "Remove Item", selected_item_path(selected_item.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"delete-text"%></strong>
               <%# .id not mandatory, Rails will intuitively fetch the id if just selected_item is passed %>
               </div>
         </div>
@@ -30,16 +31,16 @@
       <% total_price += selected_item.item.price * count %>
     <% end %>
     <div class="row">
-      <div class="col-sm-12 total-price">
-        <p>Total: <%= total_price %>€</p>
-      </div>
+     <div class="col-sm-12 total-price">
+      <p>Total: <span><%= total_price %>€</span></p>
+    </div>
     </div>
   <% else %>
     <p>Your basket is empty.</p>
   <% end %>
   <div class="row">
     <div class="col-sm-12">
-      <button class= "btn-green-primary" type="button"><strong>Go to Checkout</strong></button>
+      <button class= "btn-green-primary" type="button"><strong><%=link_to "Go to Checkout", new_purchase_path,  class: "checkout-button" %></strong></button>
     </div>
   </div>
 </div>
